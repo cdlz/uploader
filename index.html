@@ -2,24 +2,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>jQuery Uploader</title>
+<title>Markdown Images Lib</title>
 <style type="text/css">
 * {margin:0; padding:0;}
-body {font:12px/1.5 tohama,arial;}
+body {font:12px/1.5 tohama,arial;text-align: center;}
 a {text-decoration:none}
 a:hover {text-decoration:underline;}
 /*.upload-btn-over {background:#f00}*/
+#wrapper { MARGIN-RIGHT: auto; MARGIN-LEFT: auto; width:800px;text-align: left;}
 </style>
 <link rel="stylesheet" href="./assets/jquery.uploader.css">
 </head>
 
 <body>
+  <div id="wrapper">
     <h2>Markdown ImgTool</h2>
     <br>
-	<span style="color:red">注意：1、本示例限制了只能上传 jpg,jpeg,gif,png 格式；2、文件大小超过1M（1024KB）则禁止上传</span>
+	  <span style="color:red">注意：1、仅允许上传图片: jpg,jpeg,gif,png 格式；2、文件大小超过8MB,则禁止上传</span>
     <br><br>
-    <div id="html5uploader" style="width:600px;height:150px;border: 1px solid #b7c7cf;">
-        drag&drop image here~
+    <div id="html5uploader" style="width:600px;height:150px;background: #eee;border: 3px dashed #999;">
+        请将图片拖放到此框~<br>
+        drag and drop image here~ <br>
     </div>
 
     <br><br>
@@ -34,7 +37,7 @@ a:hover {text-decoration:underline;}
     <br><br>
     <div id="preview"></div>
 
-
+</div>
 <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 <!--https://github.com/niceue/uploader-->
 <script type="text/javascript" src="./assets/jquery.uploader.js"></script>
@@ -178,6 +181,27 @@ $(function(){
         }
     });
 });
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?dd98ac98fca962aa3111dae15b196b0d";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- vppgo_markdown -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7220882232307827"
+     data-ad-slot="9409705110"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </body>
 </html>
