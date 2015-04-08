@@ -10,7 +10,7 @@ a {text-decoration:none}
 a:hover {text-decoration:underline;}
 /*.upload-btn-over {background:#f00}*/
 </style>
-<link rel="stylesheet" href="jquery.uploader.css">
+<link rel="stylesheet" href="./assets/jquery.uploader.css">
 </head>
 
 <body>
@@ -37,20 +37,20 @@ a:hover {text-decoration:underline;}
 
 <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 <!--https://github.com/niceue/uploader-->
-<script type="text/javascript" src="./jquery.uploader.js"></script>
+<script type="text/javascript" src="./assets/jquery.uploader.js"></script>
 <!--https://github.com/MicheleBertoli/jquery-html5-uploader-->
-<script type="text/javascript" src="./jquery.html5uploader.js"></script>
+<script type="text/javascript" src="./assets/jquery.html5uploader.js"></script>
 <script type="text/javascript">
 $(function() {
     $("#html5uploader, #selectFile").html5Uploader({
         name: "file",
-        postUrl: "upload.php",
+        postUrl: "do_upload.php",
         onSuccess: function(e, file,responseText){
               // log(file);
               var previewHTML='';
               log(responseText);
               if (file.type.lastIndexOf("image/")>=0 ){// === "image/jpeg"
-                previewHTML += '<img src="'+ responseText +'">';
+                previewHTML +=   responseText ;
               }
 
               if ( previewHTML ) {
@@ -65,6 +65,9 @@ $(function() {
 
 <script type="text/javascript">
 function log(obj1, obj2){
+
+    return true;
+
     if ('console' in window) {
         obj2 ? console.log(obj1, obj2) : console.log(obj1);
     }
@@ -73,8 +76,8 @@ $(function(){
     var previewHTML = '';
 
     $('#selectFile').uploader({
-        action: 'upload.php',   //服务端脚本
-        // mode: 'html5',        //上传模式， html5/flash
+        action: 'do_upload.php',   //服务端脚本
+        mode: 'html5',        //上传模式， html5/flash
         name: "file",           //字段名
         formData: {},           //
         multiple: true,         //是否多选
@@ -82,7 +85,7 @@ $(function(){
 		//debug:true,
         preview: true,
         showQueue: '#queue',                        //显示队列的位置（传递jQuery选择器自定义队列显示的元素，传递true自动生成队列）
-        fileSizeLimit: '1M',                        //文件大小限制（'100kb' '5M' 等）
+        fileSizeLimit: '8M',                        //文件大小限制（'100kb' '5M' 等）
         fileTypeDesc: '选择图片文件',      //可选择的文件的描述，用中竖线分组。此字符串出现在浏览文件对话框的文件类型下拉中
         fileTypeExts: 'jpg,jpeg,gif,png',        //允许上传的文件类型类表，用逗号分隔多个扩展，用中竖线分组（eg: 'jpg,jpeg,gif,png | zip,rar'）
 
@@ -146,7 +149,8 @@ $(function(){
         onSuccess: function(e){
             log('onSuccess', e);
             log('上传成功！文件地址：'+ e.data);
-            if (e.file.type === "image/jpeg") previewHTML += '<img src="'+ e.data +'">';
+            // if (e.file.type === "image/jpeg")
+            previewHTML +=  e.data ;
             log("===============================================");
             log(" ");
         },
